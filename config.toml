@@ -1,0 +1,13 @@
+[server]
+address = "127.0.0.1"
+port = 8501
+
+[theme]
+base = "dark"
+primaryColor = "#C9A227"
+backgroundColor = "#17191B"
+secondaryBackgroundColor = "#24272A"
+textColor = "#F5F2E9"
+font = "'IBM Plex Sans':https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+headingFont = "'IBM Plex Sans':https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+codeFont = "'IBM Plex Mono':https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"
