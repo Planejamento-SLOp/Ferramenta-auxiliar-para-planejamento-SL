@@ -1,0 +1,545 @@
+:root {
+  color-scheme: dark;
+  --slop-bg: #0c1218;
+  --slop-panel: rgba(15, 22, 28, 0.9);
+  --slop-border: rgba(228, 202, 132, 0.23);
+  --slop-text: #f5f4ef;
+  --slop-muted: #c6cbd0;
+  --slop-gold: #c9a227;
+  --slop-gold-bright: #f2d579;
+  --slop-green: #8fc9a1;
+  --slop-wallpaper-rampa: url("__SLOP_RAMP_WALLPAPER__");
+  --slop-wallpaper-queda: url("__SLOP_FREEFALL_WALLPAPER__");
+  --slop-wallpaper-velame: url("__SLOP_CANOPY_WALLPAPER__");
+}
+
+html,
+body {
+  background-color: var(--slop-bg);
+  color: var(--slop-text);
+  font-family: "IBM Plex Sans", Arial, sans-serif !important;
+}
+
+body {
+  background-image:
+    linear-gradient(
+      112deg,
+      rgba(8, 13, 18, 0.91) 0%,
+      rgba(8, 13, 18, 0.86) 47%,
+      rgba(8, 13, 18, 0.92) 100%
+    ),
+    var(--slop-wallpaper-queda),
+    var(--slop-wallpaper-velame);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position:
+    center,
+    left clamp(0px, 5vw, 72px) center,
+    right clamp(0px, 5vw, 72px) center;
+  background-size: auto, auto 72vh, auto 64vh;
+}
+
+.stApp {
+  overflow-x: hidden;
+  background: transparent !important;
+}
+
+[data-testid="stAppViewContainer"] {
+  background: transparent;
+}
+
+[data-testid="stHeader"] {
+  background: rgba(9, 14, 19, 0.72);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(228, 202, 132, 0.12);
+}
+
+[data-testid="stAppViewContainer"] > .main .block-container {
+  max-width: 1540px;
+  padding: 1.55rem clamp(1rem, 3vw, 2.8rem) 3.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--slop-text);
+  font-family: "IBM Plex Sans", Arial, sans-serif !important;
+  letter-spacing: -0.025em;
+}
+
+.stApp h1 {
+  font-size: clamp(1.7rem, 2.5vw, 2.1rem) !important;
+}
+
+.stApp h2 {
+  font-size: clamp(1.4rem, 2vw, 1.75rem) !important;
+}
+
+p,
+label,
+li,
+div[data-testid="stMarkdownContainer"] {
+  color: var(--slop-text);
+  font-family: "IBM Plex Sans", Arial, sans-serif !important;
+}
+
+small,
+.stCaption,
+[data-testid="stCaptionContainer"] {
+  color: var(--slop-muted) !important;
+}
+
+a {
+  color: var(--slop-gold-bright);
+}
+
+a:hover {
+  color: #ffe9a3;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[role="radio"]:focus-visible,
+[role="tab"]:focus-visible {
+  outline: 3px solid var(--slop-gold-bright) !important;
+  outline-offset: 3px;
+}
+
+.slop-brand-eyebrow {
+  margin: 0 0 0.25rem;
+  color: var(--slop-gold-bright) !important;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.slop-brand-title {
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.8rem) !important;
+  line-height: 1.16;
+  white-space: nowrap;
+}
+
+.slop-access-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.6vw, 2rem) !important;
+}
+
+.slop-top-metrics {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0 1.35rem;
+}
+
+.slop-top-metric {
+  min-width: 0;
+  padding: 0.85rem 1rem;
+  background: linear-gradient(
+    145deg,
+    rgba(24, 32, 39, 0.94),
+    rgba(13, 19, 24, 0.9)
+  );
+  border: 1px solid var(--slop-border);
+  border-top: 2px solid var(--slop-gold);
+  border-radius: 0.65rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(14px);
+}
+
+.slop-top-metric span,
+.slop-top-metric strong {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.slop-top-metric span {
+  margin-bottom: 0.35rem;
+  color: var(--slop-muted);
+  font-size: 0.77rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.slop-top-metric strong {
+  color: var(--slop-text);
+  font-family: "IBM Plex Sans", Arial, sans-serif !important;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.slop-page-intro {
+  margin-top: -0.45rem;
+  color: var(--slop-muted) !important;
+}
+
+.slop-feature-hero {
+  position: relative;
+  display: flex;
+  min-height: 23rem;
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(1.5rem, 5vw, 4.5rem);
+  background-color: #111820;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(8, 13, 18, 0.97) 0%,
+      rgba(8, 13, 18, 0.9) 42%,
+      rgba(8, 13, 18, 0.12) 100%
+    ),
+    var(--slop-wallpaper-rampa);
+  background-repeat: no-repeat;
+  background-position: center, right center;
+  background-size: cover, auto 100%;
+  border: 1px solid rgba(228, 202, 132, 0.28);
+  border-radius: 1rem;
+  box-shadow: 0 28px 75px rgba(0, 0, 0, 0.38);
+}
+
+.slop-feature-content {
+  max-width: min(58%, 44rem);
+  position: relative;
+  z-index: 1;
+}
+
+.slop-feature-content h2 {
+  margin: 0.4rem 0 0.8rem;
+  font-size: clamp(2rem, 4vw, 3.4rem) !important;
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.slop-feature-content p:last-child {
+  max-width: 38rem;
+  margin-bottom: 0;
+  color: var(--slop-muted);
+  font-size: clamp(0.98rem, 1.2vw, 1.1rem);
+  line-height: 1.7;
+}
+
+.slop-photo-credit {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.4rem 0.65rem;
+  color: #fff !important;
+  background: rgba(4, 8, 11, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+}
+
+.slop-dashboard-status {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.slop-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1rem;
+  margin: 0.75rem 0 1rem;
+  padding: 0.75rem 0.9rem;
+  background: #202224;
+  border: 1px solid var(--slop-border);
+  border-radius: 0.65rem;
+}
+
+.slop-map-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--slop-text);
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.slop-map-swatch {
+  display: inline-block;
+  width: 1rem;
+  height: 0.35rem;
+  flex: 0 0 auto;
+  background: var(--swatch-color);
+  border: 1px solid #aeb1b3;
+  border-radius: 0.2rem;
+}
+
+.slop-status-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.1rem;
+  background: linear-gradient(
+    145deg,
+    rgba(22, 30, 37, 0.94),
+    rgba(12, 18, 23, 0.92)
+  );
+  border: 1px solid var(--slop-border);
+  border-radius: 0.65rem;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(14px);
+}
+
+.slop-status-card.is-complete {
+  border-left: 3px solid var(--slop-green);
+}
+
+.slop-status-card.is-pending {
+  border-left: 3px solid var(--slop-gold);
+}
+
+.slop-status-label,
+.slop-status-detail {
+  color: var(--slop-muted);
+  font-size: 0.83rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.slop-status-card strong {
+  color: var(--slop-text);
+  font-size: 1rem;
+}
+
+div[data-testid="stMetric"] {
+  min-width: 0;
+  padding: 0.9rem 1rem;
+  background: linear-gradient(
+    145deg,
+    rgba(24, 32, 39, 0.94),
+    rgba(13, 19, 24, 0.92)
+  );
+  border: 1px solid var(--slop-border);
+  border-radius: 0.7rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+}
+
+div[data-testid="stMetric"] label,
+div[data-testid="stMetric"] [data-testid="stMetricLabel"] {
+  color: var(--slop-muted) !important;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+div[data-testid="stMetric"] [data-testid="stMetricValue"] {
+  color: var(--slop-text);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+div[data-testid="stRadio"] > div[role="radiogroup"] {
+  gap: 0.3rem;
+  padding: 0.45rem;
+  background: rgba(11, 17, 22, 0.82);
+  border: 1px solid var(--slop-border);
+  border-radius: 0.7rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(14px);
+}
+
+div[data-testid="stRadio"] label {
+  min-height: 2.55rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.45rem;
+  font-weight: 600;
+}
+
+div[data-testid="stRadio"] label:hover {
+  background: rgba(201, 162, 39, 0.16);
+}
+
+button[kind="primary"],
+button[kind="secondary"] {
+  min-height: 2.65rem;
+  border-radius: 0.55rem;
+  font-weight: 650;
+  transition: background-color 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+button[kind="primary"]:hover,
+button[kind="secondary"]:hover {
+  border-color: var(--slop-gold-bright);
+  transform: translateY(-1px);
+}
+
+button[kind="primary"] {
+  color: #17191b;
+}
+
+div[data-testid="stAlert"] {
+  border: 1px solid var(--slop-border);
+  border-radius: 0.7rem;
+  background-color: rgba(15, 22, 28, 0.92);
+  backdrop-filter: blur(12px);
+}
+
+div[data-testid="stExpander"] {
+  background: rgba(13, 19, 24, 0.9);
+  border: 1px solid var(--slop-border);
+  border-radius: 0.7rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(12px);
+}
+
+div[data-testid="stDataFrame"],
+div[data-testid="stDataEditor"] {
+  max-width: 100%;
+  border: 1px solid var(--slop-border);
+  border-radius: 0.65rem;
+}
+
+div[data-testid="stImage"] img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--slop-border);
+  border-radius: 0.75rem;
+}
+
+iframe {
+  max-width: 100%;
+  border: 1px solid var(--slop-border);
+  border-radius: 0.65rem;
+}
+
+[data-testid="stSidebar"] {
+  background: rgba(9, 14, 19, 0.94);
+  border-right: 1px solid var(--slop-border);
+  backdrop-filter: blur(18px);
+}
+
+code,
+pre {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+@media (max-width: 1050px) {
+  .slop-top-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .slop-dashboard-status {
+    grid-template-columns: 1fr;
+  }
+
+  .slop-feature-content {
+    max-width: 62%;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background-image:
+      linear-gradient(
+        112deg,
+        rgba(8, 13, 18, 0.94) 0%,
+        rgba(8, 13, 18, 0.91) 50%,
+        rgba(8, 13, 18, 0.95) 100%
+      ),
+      var(--slop-wallpaper-queda),
+      var(--slop-wallpaper-velame);
+    background-position: center, left 0 bottom, right 0 top;
+    background-size: auto, auto 42vh, auto 38vh;
+  }
+
+  [data-testid="stAppViewContainer"] > .main .block-container {
+    padding: 1rem 0.8rem 2rem;
+  }
+
+  .slop-brand-title {
+    font-size: 1.35rem;
+  }
+
+  .slop-brand-eyebrow {
+    font-size: 0.68rem;
+  }
+
+  .slop-top-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .slop-feature-hero {
+    min-height: 29rem;
+    align-items: flex-start;
+    padding: 15rem 1.15rem 3.5rem;
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(8, 13, 18, 0.04) 0%,
+        rgba(8, 13, 18, 0.24) 38%,
+        rgba(8, 13, 18, 0.96) 58%,
+        rgba(8, 13, 18, 0.98) 100%
+      ),
+      var(--slop-wallpaper-rampa);
+    background-position: center, top center;
+    background-size: cover, 100% auto;
+  }
+
+  .slop-feature-content {
+    max-width: 100%;
+  }
+
+  .slop-feature-content h2 {
+    font-size: 2rem !important;
+  }
+
+  .slop-photo-credit {
+    right: 0.75rem;
+    bottom: 0.65rem;
+    font-size: 0.7rem;
+  }
+
+  .slop-top-metric {
+    padding: 0.7rem;
+  }
+
+  .slop-top-metric strong {
+    font-size: 0.92rem;
+  }
+
+  div[data-testid="stHorizontalBlock"] {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  div[data-testid="stHorizontalBlock"] > div[data-testid="column"] {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  div[data-testid="stRadio"] > div[role="radiogroup"] {
+    flex-wrap: wrap;
+  }
+
+  div[data-testid="stRadio"] label {
+    min-height: 2.8rem;
+  }
+
+  iframe {
+    height: min(60vh, 420px);
+    min-height: 320px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
